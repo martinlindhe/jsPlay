@@ -1,0 +1,48 @@
+<html>
+<head>
+
+</head>
+
+<body>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.fillStyle = "#fff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    w = canvas.width;
+    h = canvas.height;
+
+    startX = 0;
+    direction = 0;
+
+    lineHeight = 30;
+
+    for (y = 0; y < h; y += lineHeight) {
+
+        for (x = startX; x < w; x += 50) {
+
+            context.fillStyle = "#000";
+            context.fillRect(x, y, 30, lineHeight);
+        }
+
+        context.fillStyle = "#333";
+        context.fillRect(0, y, w, 1);
+
+
+        if (startX > 15 || startX < 0) {
+            direction = !direction;
+        }
+        if (direction == 1)
+            startX += 4;
+        else
+            startX -= 4;
+
+    }
+
+    </script>
+</body>
+</html>
