@@ -1,0 +1,124 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<style>
+.layers {position:relative;}
+canvas {position:absolute;left:0;top:0;}
+</style>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <canvas id="temp" width="640" height="480"></canvas>
+
+    <script>
+    var canvas = document.getElementById("canvas");
+
+    var ctx = canvas.getContext('2d'),
+    /// temp canvas for the animation
+    tctx = temp.getContext('2d');
+
+    ctx.lineWidth = tctx.lineWidth = 4;
+    ctx.lineCap = tctx.lineCap = 'round';
+    ctx.strokeStyle = tctx.strokeStyle = '#ff0000';
+
+    // smaller - more erroroneous
+    // added callback to function nextCircle
+    handDrawCircle(tctx, 250, 250, 25, 2, nextCircle);
+
+    // this will be called when first circle is complete
+    function nextCircle() {
+        ctx.drawImage(temp, 0, 0);
+        // bigger - less erroroneous
+        handDrawCircle(tctx, 150, 150, 50, 2, nextCircle2);
+    }
+
+    function nextCircle2() {
+        ctx.drawImage(temp, 0, 0);
+        // bigger - less erroroneous
+        handDrawCircle(tctx, 250, 250, 200, 2, done);
+    }
+
+    // this will be called when second circle is complete
+    function done() {
+        ctx.drawImage(temp, 0, 0);
+    }
+
+    /// added callback parameter
+    function handDrawCircle(ctx, cx, cy, r, rounds, callback) {
+
+        rounds = rounds ? rounds : 3.0; // can be fractional, ie. 2.5
+        
+        var x, y,
+            /// try to find the sweet-spot here:
+            tol = Math.random() * (r * 0.03) + (r * 0.025),
+            dx = Math.random() * tol * 0.75,
+            dy = Math.random() * tol * 0.75,
+            /// and here:
+            ix = (Math.random() - 1) * (r * 0.2 * 0.022),
+            iy = (Math.random() - 1) * (r * 0.15 * 0.022),
+            rx = r + Math.random() * tol,
+            ry = (r + Math.random() * tol) * 0.8,
+            a = 0,
+            ad = 3,
+            i = 0,
+            start = Math.random() + 50,
+            tot = 360 * rounds + Math.random() * 50 - 100,
+            deg2rad = Math.PI / 180,
+            points = [],
+            rotate = Math.random() * 0.5;
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(-rotate);
+        ctx.translate(-cx, -cy);
+        
+        for (; i < tot; i += ad) {
+            dx += ix;
+            dy += iy;
+
+            if (dx < -tol || dx > tol) ix = -ix;
+            if (dy < -tol || dy > tol) iy = -iy;
+
+            x = cx + (rx + dx * 2) * Math.cos(i * deg2rad + start);
+            y = cy + (ry + dy * 2) * Math.sin(i * deg2rad + start);
+
+            points.push(x, y);
+            
+            ad = Math.random() * 4 + 2;
+        }
+
+        i = 2;
+
+        draw();
+
+        function draw() {
+
+            var t = 0;
+            
+            /// clear background, optimize by limiting the region
+            ctx.clearRect(cx - r - tol, cy - r - tol, (r + tol) * 2, (r + tol) * 2);
+            
+            ctx.beginPath();
+            ctx.moveTo(points[0], points[1]);
+
+            for(;t <= i; t +=2) {
+                ctx.lineTo(points[t], points[t + 1]);
+            }
+            ctx.stroke();
+
+            i += 2;
+
+            if (i < points.length) {
+                requestAnimationFrame(draw);
+            } else {
+                ctx.restore();
+                if (typeof callback === 'function')
+                    callback();
+            }
+        }
+    }
+
+    </script>
+</body>
+</html>
