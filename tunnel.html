@@ -1,0 +1,79 @@
+<html>
+<head>
+
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+    function resizeWindow(el, width, height)
+    {
+        el.width = width;
+        el.height = height;
+        el.style.position = "absolute";
+    }
+
+    function positionWindow(el, x, y)
+    {
+        el.style.left = x + "px";
+        el.style.top = y + "px";
+    }
+
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    resizeWindow(canvas, 640/2, 480/2);
+    positionWindow(canvas, 0, 0);
+
+    // To rotate the HTML5 Canvas, we can use the rotate() transform method.
+    // The rotate transformation requires an angle in radians.  To define the
+    // rotation point, we need to first translate the canvas context such that
+    // the top left corner of the context lies on the desired rotation point.
+
+      // translate context to center of canvas
+      //context.translate(canvas.width / 2, canvas.height / 2);
+
+      // rotate 45 degrees clockwise
+      //context.rotate(Math.PI / 4);
+
+    // rotate 20 degrees
+    context.rotate(45 * Math.PI / 180);
+
+
+
+    context.fillStyle = '#eaa';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    w = canvas.width;
+    h = canvas.height;
+
+    startX = 0;
+    direction = 0;
+
+    lineHeight = 30;
+    barHeight = 10;
+
+    for (y = 0; y < h; y += lineHeight) {
+        context.fillStyle = "#333";
+        context.fillRect(0, y, w, barHeight);
+    }
+
+
+    var posX = parseInt(canvas.style.left, 10);
+    var posY = parseInt(canvas.style.top, 10);
+
+    function moveCanvas()
+    {
+        posX += 1;
+        posY -= 1;
+
+        canvas.style.left = posX;
+        canvas.style.top = posY;
+        setTimeout(moveCanvas, 50);
+    }
+    moveCanvas();
+
+    </script>
+</body>
+</html>
