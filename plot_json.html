@@ -1,0 +1,718 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+<script>
+var d = {
+    " " : 
+    {
+        "characters" : [ " " ],
+        "feature-threshold-multiplier" : 0.1000000014901161,
+        "initial-scale-multiplier" : 3.0,
+        "mean" : 
+        {
+            "dof" : 10,
+            "mode" : [ 103.50, 199.50, 310.50, 199.50 ]
+        },
+        "precision" : 
+        {
+            "dof" : 10,
+            "mode" : [ 0.000518617220222950, 0.0, 0.0, 0.000518617220222950 ]
+        },
+        "prior-mean" : [ 103.50, 199.50, 310.50, 199.50 ],
+        "prior-precision" : [ 0.000518617220222950, 0.0, 0.0, 0.000518617220222950 ]
+    },
+    "a" : 
+    {
+        "characters" : [ "a" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 39.93975830078125, 85.97588348388672 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.009730212390422821,
+                -0.0001946120755746961,
+                -0.0001946120755746961,
+                0.007911019027233124
+            ]
+        },
+        "prior-mean" : [ 41.40000152587891, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "b" : 
+    {
+        "characters" : [ "b" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 249.5889129638672, 140.6728363037109 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.008287882432341576,
+                0.0002515863452572376,
+                0.0002515863452572376,
+                0.006964977830648422
+            ]
+        },
+        "prior-mean" : [ 248.4000091552734, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "c" : 
+    {
+        "characters" : [ "c" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 160.5486297607422, 142.9301300048828 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.007414133287966251,
+                -0.001472375122830272,
+                -0.001472375122830272,
+                0.009494827128946781
+            ]
+        },
+        "prior-mean" : [ 165.6000061035156, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "d" : 
+    {
+        "characters" : [ "d" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 122.2151870727539, 92.00933837890625 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01060590893030167,
+                -0.001160941552370787,
+                -0.001160941552370787,
+                0.01127541996538639
+            ]
+        },
+        "prior-mean" : [ 124.2000045776367, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "e" : 
+    {
+        "characters" : [ "e" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 103.1268920898438, 35.44274520874023 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01004005875438452,
+                -0.001068535959348083,
+                -0.001068535959348083,
+                0.008690334856510162
+            ]
+        },
+        "prior-mean" : [ 103.50, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "f" : 
+    {
+        "characters" : [ "f" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 163.7425384521484, 89.23995208740234 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01074323337525129,
+                -0.001175218145363033,
+                -0.001175218145363033,
+                0.008536418899893761
+            ]
+        },
+        "prior-mean" : [ 165.6000061035156, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "g" : 
+    {
+        "characters" : [ "g" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 206.9598388671875, 84.6347656250 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.008768353611230850,
+                -0.0006453354144468904,
+                -0.0006453354144468904,
+                0.008483585901558399
+            ]
+        },
+        "prior-mean" : [ 207.0, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "h" : 
+    {
+        "characters" : [ "h" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 253.7595214843750, 84.14615631103516 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01091852318495512,
+                0.0009865404572337866,
+                0.0009865404572337866,
+                0.01121779996901751
+            ]
+        },
+        "prior-mean" : [ 248.4000091552734, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "i" : 
+    {
+        "characters" : [ "i" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 309.7704772949219, 30.15838623046875 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01067569572478533,
+                0.003620412200689316,
+                0.003620412200689316,
+                0.01059334166347980
+            ]
+        },
+        "prior-mean" : [ 310.50, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "j" : 
+    {
+        "characters" : [ "j" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 28,
+            "mode" : [ 291.4479675292969, 84.71783447265625 ]
+        },
+        "precision" : 
+        {
+            "dof" : 28,
+            "mode" : 
+            [
+                0.006972340401262045,
+                0.0003079279558733106,
+                0.0003079279558733106,
+                0.007687573786824942
+            ]
+        },
+        "prior-mean" : [ 289.8000183105469, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "k" : 
+    {
+        "characters" : [ "k" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 332.8846435546875, 82.04703521728516 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.009806565940380096,
+                0.001383823575451970,
+                0.001383823575451970,
+                0.007610244676470757
+            ]
+        },
+        "prior-mean" : [ 331.2000122070312, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "l" : 
+    {
+        "characters" : [ "l" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 371.4673461914062, 80.44010162353516 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01286938693374395,
+                0.002091460162773728,
+                0.002091460162773728,
+                0.008962049148976803
+            ]
+        },
+        "prior-mean" : [ 372.6000061035156, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "m" : 
+    {
+        "characters" : [ "m" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 332.7677001953125, 127.8816986083984 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01405550446361303,
+                0.002768309088423848,
+                0.002768309088423848,
+                0.008105325512588024
+            ]
+        },
+        "prior-mean" : [ 331.2000122070312, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "n" : 
+    {
+        "characters" : [ "n" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 289.1200866699219, 132.0540008544922 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.006927216891199350,
+                0.002494655316695571,
+                0.002494655316695571,
+                0.006925275549292564
+            ]
+        },
+        "prior-mean" : [ 289.8000183105469, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "o" : 
+    {
+        "characters" : [ "o" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 352.9457702636719, 31.51392364501953 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01109110657125711,
+                0.001677140593528748,
+                0.001677140593528748,
+                0.01236584223806858
+            ]
+        },
+        "prior-mean" : [ 351.8999938964844, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "p" : 
+    {
+        "characters" : [ "p" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 388.7054748535156, 32.69835281372070 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01165413018316031,
+                0.002735629910603166,
+                0.002735629910603166,
+                0.01250471174716949
+            ]
+        },
+        "prior-mean" : [ 393.2999877929688, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "q" : 
+    {
+        "characters" : [ "q" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 19,
+            "mode" : [ 21.63314437866211, 31.93420028686523 ]
+        },
+        "precision" : 
+        {
+            "dof" : 19,
+            "mode" : 
+            [
+                0.005713433492928743,
+                0.0001146909853559919,
+                0.0001146909853559919,
+                0.006358996499329805
+            ]
+        },
+        "prior-mean" : [ 20.70000076293945, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "r" : 
+    {
+        "characters" : [ "r" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 142.4692535400391, 41.18400573730469 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.009505901485681534,
+                -0.0003700945235323161,
+                -0.0003700945235323161,
+                0.01116134598851204
+            ]
+        },
+        "prior-mean" : [ 144.8999938964844, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "s" : 
+    {
+        "characters" : [ "s" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 84.62083435058594, 91.62818145751953 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01093766279518604,
+                -0.001209432608447969,
+                -0.001209432608447969,
+                0.01080643478780985
+            ]
+        },
+        "prior-mean" : [ 82.80000305175781, 85.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "t" : 
+    {
+        "characters" : [ "t" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 185.8436431884766, 42.55583572387695 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01045210286974907,
+                0.001773985917679965,
+                0.001773985917679965,
+                0.008595154620707035
+            ]
+        },
+        "prior-mean" : [ 186.3000030517578, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "tags" : null,
+    "u" : 
+    {
+        "characters" : [ "u" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 270.4618225097656, 35.41873168945312 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.009131302125751972,
+                0.001919440925121307,
+                0.001919440925121307,
+                0.009131016209721565
+            ]
+        },
+        "prior-mean" : [ 269.1000061035156, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "v" : 
+    {
+        "characters" : [ "v" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 210.0367889404297, 138.3223266601562 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.003064915072172880,
+                -0.0009184600203298032,
+                -0.0009184600203298032,
+                0.006329041905701160
+            ]
+        },
+        "prior-mean" : [ 207.0, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "w" : 
+    {
+        "characters" : [ "w" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 59.08503723144531, 35.79744720458984 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.01226312573999166,
+                -0.002889108145609498,
+                -0.002889108145609498,
+                0.009900121949613094
+            ]
+        },
+        "prior-mean" : [ 62.09999847412109, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "x" : 
+    {
+        "characters" : [ "x" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 35,
+            "mode" : [ 125.2628479003906, 142.6928558349609 ]
+        },
+        "precision" : 
+        {
+            "dof" : 35,
+            "mode" : 
+            [
+                0.005255668889731169,
+                0.0002910856856033206,
+                0.0002910856856033206,
+                0.007809808012098074
+            ]
+        },
+        "prior-mean" : [ 124.2000045776367, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "y" : 
+    {
+        "characters" : [ "y" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 40,
+            "mode" : [ 224.0608978271484, 39.53019332885742 ]
+        },
+        "precision" : 
+        {
+            "dof" : 40,
+            "mode" : 
+            [
+                0.009471769444644451,
+                0.001377601060084999,
+                0.001377601060084999,
+                0.009320293553173542
+            ]
+        },
+        "prior-mean" : [ 227.6999969482422, 28.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    },
+    "z" : 
+    {
+        "characters" : [ "z" ],
+        "feature-threshold-multiplier" : 1.0,
+        "initial-scale-multiplier" : 1.0,
+        "mean" : 
+        {
+            "dof" : 10,
+            "mode" : [ 82.80000305175781, 142.50 ]
+        },
+        "precision" : 
+        {
+            "dof" : 10,
+            "mode" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+        },
+        "prior-mean" : [ 82.80000305175781, 142.50 ],
+        "prior-precision" : [ 0.004667554982006550, 0.0, 0.0, 0.004667554982006550 ]
+    }
+};
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+resizeWindow(canvas, 640, 480);
+
+// rotate 45 degrees clockwise
+//context.rotate(Math.PI / 4);
+
+
+
+context.fillStyle = '#eaa';
+context.fillRect(0, 0, canvas.width, canvas.height);
+
+w = canvas.width;
+h = canvas.height;
+
+startX = 0;
+
+lineHeight = 30;
+barHeight = 10;
+
+
+for (var key in d) {
+    
+    if (key == "tags") {
+        continue;
+    }
+
+    if (d.hasOwnProperty(key)) {
+
+        if (d[key].hasOwnProperty('mean')) {
+            var mode = d[key]['mean']['mode'];
+            console.log(mode); // coords?
+            //console.log(d[key]['precision']['mode']);
+            
+            
+            context.fillStyle = "#333";
+            context.fillRect(mode[0], mode[1], 10, 10);
+
+        }
+    }
+    
+}
+
+
+var posX = parseInt(canvas.style.left, 10);
+var posY = parseInt(canvas.style.top, 10);
+
+
+
+
+
+function resizeWindow(el, width, height)
+{
+    el.width = width;
+    el.height = height;
+    el.style.position = "absolute";
+}
+
+function positionWindow(el, x, y)
+{
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+}
+
+</script>
+</body>
+</html>
